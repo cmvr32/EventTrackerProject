@@ -1,0 +1,2 @@
+rootProject.name = 'FlightTrackerREST'
+includeFlat 'FlightTrackerJPA'
