@@ -9,13 +9,15 @@ Assignment Guidelines:
 
 Build an event tracking application, create a new database with a single table. Create a Java POJO that models the database and map using JPA. Use Spring REST annotations and Spring Data JPA to perform all CRUD operations, send and receive JSON. Test CRUD operations using Postman.
 
-Overview:
+Testing:
+
+Below are the REST routes, URLs and HTTP methods used to test each CRUD element in Postman.
 
 * View all flights: `GET` `http://localhost:8083/api/flights`
-* View flight by Id: `GET` `http://localhost:8083/api/flights/2`
+* View flight by Id: `GET` `http://localhost:8083/api/flights/{id}`
 * Create flight: `POST` `http://localhost:8083/api/flights`
-* Update flight: `PUT` `http://localhost:8083/api/flights/3`
-* Delete flight: `DELETE` `http://localhost:8083/api/flights/4`
+* Update flight: `PUT` `http://localhost:8083/api/flights/{id}`
+* Delete flight: `DELETE` `http://localhost:8083/api/flights/{id}`
 
 
 ## Technologies/Skills Used
@@ -27,6 +29,7 @@ Overview:
 * Spring Tool Suite
 * MySQL
 * Github
+* Postman
 
 ## Lessons Learned
 
