@@ -6,6 +6,6 @@ import com.skilldistillery.flighttracker.entities.Flight;
 
 public interface FlightRepository extends JpaRepository<Flight, Integer> {
 
-	
+
 	
 }
