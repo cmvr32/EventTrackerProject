@@ -1,6 +1,5 @@
 package com.skilldistillery.flighttracker.entities;
 
-import java.sql.Date;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Flight {
@@ -20,23 +21,57 @@ public class Flight {
 	
 	private String date;
 	
+	@Column(name="aircraft_number")
+	private String acftNumber;
+	
+	@Column(name="flight_type")
+	private String flightType;
+	
+	@Column(name="mission_type")
+	private String missionType;
+	
+	@Column(name = "day_in_hours")
+	private double dayInHours;
+	
+	@Column(name = "night_in_hours")
+	private double nightInHours;
+	
+	@Column(name = "night_vision_goggles")
+	private double nightVisionGoggles;
+	
 	@Column(name = "duration_in_hours")
 	private double durationInHours;
 	
-	
-	private String mission;
-	
 	@Column(name = "pc_crew_member_id")
-	private int pcId;
+	private Integer pcId;
 	
 	@Column(name = "pi_crew_member_id")
-	private int piId;
+	private Integer piId;
 	
 	@Column(name = "ce_crew_member_id")
-	private int ceId;
+	private Integer ceId;
 	
-	@Column(name = "me_crew_member_id")
-	private int meId;
+	@Column(name = "mo_crew_member_id")
+	private Integer moId;
+	
+	@Column(name = "fi_crew_member_id")
+	private Integer fiId;
+	
+//	@ManyToOne
+//	@JoinColumn(name="pc_crew_member_id")
+//	private CrewMember pcCrewMember;
+//	
+//	@ManyToOne
+//	@JoinColumn(name="pi_crew_member_id")
+//	private CrewMember piCrewMember;
+//	
+//	@ManyToOne
+//	@JoinColumn(name="ce_crew_member_id")
+//	private CrewMember ceCrewMember;
+//	
+//	@ManyToOne
+//	@JoinColumn(name="me_crew_member_id")
+//	private CrewMember meCrewMember;
 
 	
 	public Flight() {
@@ -81,6 +116,78 @@ public class Flight {
 
 
 
+	public String getAcftNumber() {
+		return acftNumber;
+	}
+
+
+
+	public void setAcftNumber(String acftNumber) {
+		this.acftNumber = acftNumber;
+	}
+
+
+
+	public String getFlightType() {
+		return flightType;
+	}
+
+
+
+	public void setFlightType(String flightType) {
+		this.flightType = flightType;
+	}
+
+
+
+	public String getMissionType() {
+		return missionType;
+	}
+
+
+
+	public void setMissionType(String missionType) {
+		this.missionType = missionType;
+	}
+
+
+
+	public double getDayInHours() {
+		return dayInHours;
+	}
+
+
+
+	public void setDayInHours(double dayInHours) {
+		this.dayInHours = dayInHours;
+	}
+
+
+
+	public double getNightInHours() {
+		return nightInHours;
+	}
+
+
+
+	public void setNightInHours(double nightInHours) {
+		this.nightInHours = nightInHours;
+	}
+
+
+
+	public double getNightVisionGoggles() {
+		return nightVisionGoggles;
+	}
+
+
+
+	public void setNightVisionGoggles(double nightVisionGoggles) {
+		this.nightVisionGoggles = nightVisionGoggles;
+	}
+
+
+
 	public double getDurationInHours() {
 		return durationInHours;
 	}
@@ -93,62 +200,62 @@ public class Flight {
 
 
 
-	public String getMission() {
-		return mission;
-	}
-
-
-
-	public void setMission(String mission) {
-		this.mission = mission;
-	}
-
-
-
-	public int getPcId() {
+	public Integer getPcId() {
 		return pcId;
 	}
 
 
 
-	public void setPcId(int pcId) {
+	public void setPcId(Integer pcId) {
 		this.pcId = pcId;
 	}
 
 
 
-	public int getPiId() {
+	public Integer getPiId() {
 		return piId;
 	}
 
 
 
-	public void setPiId(int piId) {
+	public void setPiId(Integer piId) {
 		this.piId = piId;
 	}
 
 
 
-	public int getCeId() {
+	public Integer getCeId() {
 		return ceId;
 	}
 
 
 
-	public void setCeId(int ceId) {
+	public void setCeId(Integer ceId) {
 		this.ceId = ceId;
 	}
 
 
 
-	public int getMeId() {
-		return meId;
+	public Integer getMoId() {
+		return moId;
 	}
 
 
 
-	public void setMeId(int meId) {
-		this.meId = meId;
+	public void setMoId(Integer moId) {
+		this.moId = moId;
+	}
+
+
+
+	public Integer getFiId() {
+		return fiId;
+	}
+
+
+
+	public void setFiId(Integer fiId) {
+		this.fiId = fiId;
 	}
 
 
@@ -170,16 +277,13 @@ public class Flight {
 		return id == other.id;
 	}
 
-
-
 	@Override
 	public String toString() {
-		return "Flight [id=" + id + ", location=" + location + ", date=" + date + ", durationInHours=" + durationInHours
-				+ ", mission=" + mission + ", pcId=" + pcId + ", piId=" + piId + ", ceId=" + ceId + ", meId=" + meId
-				+ "]";
+		return "Flight [id=" + id + ", location=" + location + ", date=" + date + ", acftNumber=" + acftNumber
+				+ ", flightType=" + flightType + ", missionType=" + missionType + ", dayInHours=" + dayInHours
+				+ ", nightInHours=" + nightInHours + ", nightVisionGoggles=" + nightVisionGoggles + ", durationInHours="
+				+ durationInHours + ", pcId=" + pcId + ", piId=" + piId + ", ceId=" + ceId + ", moId=" + moId
+				+ ", fiId=" + fiId + "]";
 	}
-
-
-	
 
 }

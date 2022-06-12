@@ -1,6 +1,5 @@
 package com.skilldistillery.flighttracker.services;
 
-import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,12 +37,18 @@ public class FlightServiceImpl implements FlightService {
 		Flight newFlight = new Flight();
 		newFlight.setLocation(flight.getLocation());
 		newFlight.setDate(flight.getDate());
+		newFlight.setAcftNumber(flight.getAcftNumber());
+		newFlight.setFlightType(flight.getFlightType());
+		newFlight.setMissionType(flight.getMissionType());
+		newFlight.setDayInHours(flight.getDayInHours());
+		newFlight.setNightInHours(flight.getNightInHours());
+		newFlight.setNightVisionGoggles(flight.getNightVisionGoggles());
 		newFlight.setDurationInHours(flight.getDurationInHours());
-		newFlight.setMission(flight.getMission());
 		newFlight.setPcId(flight.getPcId());
 		newFlight.setPiId(flight.getPiId());
 		newFlight.setCeId(flight.getCeId());
-		newFlight.setMeId(flight.getMeId());
+		newFlight.setMoId(flight.getMoId());
+		newFlight.setFiId(flight.getFiId());
 	
 		return flightRepo.saveAndFlush(flight);
 	}
@@ -53,12 +58,18 @@ public class FlightServiceImpl implements FlightService {
 		Flight existing = findById(flightId);
 		existing.setLocation(flight.getLocation());
 		existing.setDate(flight.getDate());
+		existing.setAcftNumber(flight.getAcftNumber());
+		existing.setFlightType(flight.getFlightType());
+		existing.setMissionType(flight.getMissionType());
+		existing.setDayInHours(flight.getDayInHours());
+		existing.setNightInHours(flight.getNightInHours());
+		existing.setNightVisionGoggles(flight.getNightVisionGoggles());
 		existing.setDurationInHours(flight.getDurationInHours());
-		existing.setMission(flight.getMission());
 		existing.setPcId(flight.getPcId());
 		existing.setPiId(flight.getPiId());
 		existing.setCeId(flight.getCeId());
-		existing.setMeId(flight.getMeId());
+		existing.setMoId(flight.getMoId());
+		existing.setFiId(flight.getFiId());
 		return flightRepo.save(existing);
 	}
 

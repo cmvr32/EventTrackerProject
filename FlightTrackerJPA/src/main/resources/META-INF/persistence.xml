@@ -6,7 +6,8 @@
 
 <!-- Begin Entities -->
 
-<class>com.skilldistillery.xtreme.entities.Flight</class>
+<class>com.skilldistillery.flighttracker.entities.Flight</class>
+<class>com.skilldistillery.flighttracker.entities.CrewMember</class>
 
 
 

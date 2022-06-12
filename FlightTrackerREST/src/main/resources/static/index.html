@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>REST Video Store</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<script type="text/javascript" src="js/script.js"></script>
+</head>
+<body>
+<div class="container">
+	<hr>
+	<h3>Find Flight By Id</h3>
+	
+	<form name="flightForm">
+		<input type="number" name="flightId">
+		<button name="lookup"> Find Flight by Id</button>
+	</form>
+	
+	<div id="output">
+		<div id="flightData"></div>
+	</div>
+	
+	<hr>
+	<h3>Log a new flight</h3>
+	<div id="newFlight">
+		<form name="newFlightForm">
+			<label for="location">Location</label><br>
+			<select name="location">
+	      		<option value="Denver">Denver</option>
+	       		<option value="MTAs">Mountain Training Area</option>
+	       		<option value="Baghdad">Baghdad, Iraq</option>
+	       		<option value="Erbil">Erbil, Iraq</option>
+	       		<option value="AAAB">Al Asad, Iraq</option>
+	    	</select> <br>
+			
+			<label for="date">Date</label><br>
+			<input type="text" name="date" placeholder="MM/DD/YYYY"><br>
+			
+			<label for="acftNumber">Aircraft Number</label><br>
+			<input type="text" name="acftNumber" placeholder="00-00000"><br>
+			
+			<label for="flightType">Flight Type</label><br>
+			<select name="flightType">
+	      		<option value="Training">Training</option>
+	       		<option value="Combat">Combat</option>
+	       		<option value="MEDEVAC">Mission</option>
+	    	</select> <br>
+	    	
+	    	<label for="MissionType">Mission Type</label><br>
+			<select name="Mission">
+	      		<option value="Training">Training</option>
+	       		<option value="Combat">Combat</option>
+	       		<option value="MEDEVAC">MEDEVAC</option>
+	       		<option value="Fire">Fire Fighting</option>
+	       		<option value="VIP">VIP Transport</option>
+	    	</select> <br>
+			
+			<label for="dayInHours">Day</label><br>
+			<input type="text" name="dayInHours" placeholder="0.0"><br>
+			
+			<label for="nightInHours">Night Unaided</label><br>
+			<input type="text" name="nightInHours" placeholder="0.0"><br>
+			
+			<label for="nightVisionGoggles">Night Aided</label><br>
+			<input type="text" name="nightVisionGoggles" placeholder="0.0"><br>
+			
+			<label for="duration">Total Time</label><br>
+			<input type="text" name="duration" placeholder="0.0"><br>
+			
+			<label for="pcId">Pilot in Command</label><br>
+			<select name="pcId">
+	      		<option value="3">Byers</option>
+	       		<option value="4">Hsia</option>
+	       		<option value="14">Millington</option>
+	       		<option value="15">Geraci</option>
+	    	</select> <br>
+				
+			<label for="piId">Pilot</label><br>
+			<select name="piId">
+	      		<option value="1">Dahm</option>
+	       		<option value="2">Pupelyte</option>
+	       		<option value="12">Tixier</option>
+	       		<option value="21">Rivera</option>
+	    	</select> <br>
+				
+			<label for="ceId">Crew Chief</label><br>
+			<select name="ceId">
+	      		<option value="5">Verderame</option>
+	       		<option value="6">Patton</option>
+	       		<option value="18">Still</option>
+	       		<option value="19">Beehler</option>
+	    	</select> <br>
+				
+			<label for="moId">Medic</label><br>
+			<select name="moId">
+	      		<option value="30">Mitchell</option>
+	       		<option value="17">Weiner</option>
+	       		<option value="32">Vonlintel</option>
+	       		<option value="31">Malouff</option>
+	    	</select> <br>
+				
+			<label for="fiId">Flight Instructor</label><br>
+			<select name="fiId">
+	      		<option value="33">Lefler</option>
+	       		<option value="10">Belo</option>
+	       		<option value="9">Hallgren</option>
+	    	</select> <br>
+			<br>
+			<button name="addFlightButton">Log Flight</button>
+		</form>
+	</div>
+	<hr>
+	<div id="flightList">
+		<table class="table table-striped table-hover">
+	  	<thead class="table-dark">
+	  		<tr><th>ID</th><th>Location</th><th>Date</th><th>ACFT #</th>
+	  		<th>Flight Type</th><th>Mission Type</th><th>Day</th><th>Night</th>
+	  		<th>Goggles</th><th>Duration</th><th>Pilot In Command</th><th>Pilot</th>
+	  		<th>Crew Chief</th><th>Medic</th><th>Flight Instructor</tr>
+			</thead>
+			<tbody id="flightRows">
+			</tbody>
+
+		</table>
+	</div>
+</div>
+</body>
+</html>
