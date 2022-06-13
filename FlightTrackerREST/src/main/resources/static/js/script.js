@@ -16,23 +16,23 @@ function init(){
 
 	document.newFlightForm.addFlightButton.addEventListener('click', function(evt){
 		evt.preventDefault();
-		createFlight(e);
+		createFlight(evt);
 	})
 
 }
 
-function createFlight(e) {
-	e.preventDefault();
+function createFlight(evt) {
+	evt.preventDefault();
 	let form = document.newFlightForm;
 	let newFlight = {
 		location: form.location.value,
 		date: form.date.value,
 		acftNumber: form.acftNumber.value,
 		flightType: form.flightType.value,
-		missionTpe: form.missionType,
+		missionType: form.missionType.value,
 		dayInHours: form.dayInHours.value,
 		nightInHours: form.nightInHours.value,
-		nightVisionGoggles: form.nightVissionGoggles,
+		nightVisionGoggles: form.nightVisionGoggles.value,
 		duration: form.duration.value,
 		pc: form.pcId.value,
 		pi: form.piId.value,
@@ -46,7 +46,7 @@ function createFlight(e) {
 
 function sendNewFlight(newFlight) {
 	let xhr = new XMLHttpRequest();
-	xhr.open('POST', `api/flights`);
+	xhr.open('POST', 'api/flights');
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState === 4) {
 			if (xhr.status === 200 || xhr.status === 201) {
@@ -59,7 +59,8 @@ function sendNewFlight(newFlight) {
 		}
 	};
 	xhr.setRequestHeader('Content-type', 'application/json');
-	xhr.send(JSON.stringify(newFlight));
+	console.log(newFlight);
+	xhr.send(newFlight);
 	console.log("new flight sent");
 }
 
