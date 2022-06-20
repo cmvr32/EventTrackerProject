@@ -1,0 +1,23 @@
+div {
+  background-color: rgb(175, 159, 122);
+  margin-right: 100px;
+  margin-left: 290px;
+  width: 500px;
+}
+
+h3 {
+  color: rgb(103, 97, 63);
+  display: inline;
+  margin-right: 100px;
+  margin-left: 400px;
+  font-family: 'Helvetica-bold', serif;
+  }
+
+  .hero-image {
+    background-image: url("../../../assets/two60s.png");
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }

@@ -1,0 +1,101 @@
+
+<div class="container">
+  <h1 *ngIf="!selected"> My Flights </h1>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.3/font/bootstrap-icons.min.css" integrity="sha512-YzwGgFdO1NQw1CZkPoGyRkEnUTxPSbGWXvGiXrWk8IeSqdyci0dEDYdLLjMxq1zCoU0QBa4kHAFiRhUL3z2bow==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <div id="flightList" *ngIf="!selected">
+    <table class="table table-striped table-hover" *ngIf="!selected">
+      <thead class="table-dark">
+	  		<tr><th>ID</th><th>Location</th><th>Date</th><th>ACFT #</th>
+	  		<th>Flight Type</th><th>Mission Type</th><th>Duration</th><th></th><th></th>
+			</thead>
+      <tbody>
+        <tr *ngFor="let flight of flightList">
+          <td class="id" (click)="displayFlightInfo(flight)">{{ flight.id }}</td>
+          <td class="location" (click)="displayFlightInfo(flight)">{{ flight.location }}</td>
+          <td class="date" (click)="displayFlightInfo(flight)">{{ flight.date }}</td>
+          <td class="acftNumber" (click)="displayFlightInfo(flight)">{{ flight.acftNumber }}</td>
+          <td class="flightType" (click)="displayFlightInfo(flight)">{{ flight.flightType }}</td>
+          <td class="missionType" (click)="displayFlightInfo(flight)">{{ flight.missionType }}</td>
+          <td class="durationInHours" (click)="displayFlightInfo(flight)">{{ flight.durationInHours }}</td>
+          <td><button class="btn" (click)="displayFlightInfo(flight)"><i class="bi bi-info-square"></i></button>
+          <td><button class="btn" (click)="deleteFlight(flight.id, flight)"><i class="fa fa-trash"></i></button>
+        </tr>
+      </tbody>
+    </table>
+    <br><br><br>
+  </div>
+
+<div id="flightDetails" *ngIf="selected && !editFlight">
+    <h4>Flight: {{ selected.id }}</h4>
+    <p>Location: {{ selected.location }}</p>
+    <p>Date: {{ selected.date }}</p>
+    <p>ACFT: {{ selected.acftNumber }}</p>
+    <p>Flight Type: {{ selected.flightType }}</p>
+    <p>Mission Type: {{ selected.missionType }}</p>
+    <p>Day: {{ selected.dayInHours }}</p>
+    <p>Night Unaided: {{ selected.nightInHours }}</p>
+    <p>Night Aided: {{ selected.nightVisionGoggles }}</p>
+    <p>Duration: {{ selected.durationInHours }}</p>
+    <p>Pilot In Command: {{ selected.pcId }}</p>
+    <p>Pilot: {{ selected.piId }}</p>
+    <p>Crew Cheif: {{ selected.ceId }}</p>
+    <p>Medic: {{ selected.moId }}</p>
+    <p>Flight Insctrictor: {{ selected.fiId }}</p>
+
+    <button class="btn btn-outline-secondary" (click)="selected = null">Back</button>
+    <button class="btn btn-outline-secondary" (click)="setEditFlight()">Edit Flight</button>
+  </div>
+
+<div id="todoEdit" *ngIf="editFlight">
+    <form class="form">
+      <label class="form-label" for="location">Location: </label>
+      <input class="form-control" type="text" name="location" [(ngModel)]="editFlight.location"/>
+      <br>
+      <label class="form-label" for="date">Date: </label>
+      <input class="form-control" type="text" name="date" [(ngModel)]="editFlight.date"/>
+      <br>
+      <label class="form-label" for="acftNumber">Aircraft Number: </label>
+      <input class="form-control" type="text" name="acftNumber" [(ngModel)]="editFlight.acftNumber"/>
+      <br>
+      <label class="form-label" for="flightType" >Flight Type: </label>
+      <input class="form-control" type="text" name="flightType" [(ngModel)]="editFlight.flightType"/>
+      <br>
+      <label class="form-label" for="missionType" >Mission Type: </label>
+      <input class="form-control" type="text" name="missionType" [(ngModel)]="editFlight.missionType"/>
+      <br>
+      <label class="form-label" for="dayInHours" >Day: </label>
+      <input class="form-control" type="text" name="dayInHours" [(ngModel)]="editFlight.dayInHours"/>
+      <br>
+      <label class="form-label" for="nightInHours" >Night: </label>
+      <input class="form-control" type="text" name="nightInHours" [(ngModel)]="editFlight.nightInHours"/>
+      <br>
+      <label class="form-label" for="nightVisionGoggles" >Goggles: </label>
+      <input class="form-control" type="text" name="nightVisionGoggles" [(ngModel)]="editFlight.nightVisionGoggles"/>
+      <br>
+      <label class="form-label" for="durationInHours" >Duration: </label>
+      <input class="form-control" type="text" name="durationInHours" [(ngModel)]="editFlight.durationInHours"/>
+      <br>
+      <label class="form-label" for="pcId">Pilot in Command: </label>
+      <input class="form-control" type="text" name="pcId"  [(ngModel)]="editFlight.pcId"/>
+      <br>
+      <label class="form-label" for="piId">Pilot: </label>
+      <input class="form-control" type="text" name="piId" [(ngModel)]="editFlight.piId"/>
+      <br>
+      <label class="form-label" for="ceId">Crew Cheif: </label>
+      <input class="form-control" type="text" name="ceId" [(ngModel)]="editFlight.ceId"/>
+      <br>
+      <label class="form-label" for="moId">Medic: </label>
+      <input class="form-control" type="text" name="moId" [(ngModel)]="editFlight.moId"/>
+      <br>
+      <label class="form-label" for="fiId" >Flight Instructor: </label>
+      <input class="form-control" type="text" name="fiId" [(ngModel)]="editFlight.fiId"/>
+      <br>
+      <br>
+      <button class="btn btn-outline-secondary" (click)="editFlight = null">Cancel</button>
+      <button class="btn btn-outline-secondary" (click)="updateFlight(editFlight)">Save</button>
+    </form>
+    <br><br><br>
+  </div>
+</div>
+

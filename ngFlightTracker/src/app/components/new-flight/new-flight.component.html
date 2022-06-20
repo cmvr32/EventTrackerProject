@@ -1,0 +1,94 @@
+
+<br>
+<h3 class="container">Log a new flight</h3>
+<br>
+<br>
+	<div class ="container" id="newFlightForm">
+		<form name="newFlightForm">
+			<label for="location">Location</label><br>
+			<select name="location" [(ngModel)]="newFlight.location">
+	      		<option value="Denver">Denver</option>
+	       		<option value="MTAs">Mountain Training Area</option>
+	       		<option value="Baghdad">Baghdad, Iraq</option>
+	       		<option value="Erbil">Erbil, Iraq</option>
+	       		<option value="AAAB">Al Asad, Iraq</option>
+	    	</select> <br>
+
+			<label for="date">Date</label><br>
+			<input type="text" name="date" placeholder="MM/DD/YYYY" [(ngModel)]="newFlight.date"><br>
+
+			<label for="acftNumber">Aircraft Number</label><br>
+			<input type="text" name="acftNumber" placeholder="00-00000" [(ngModel)]="newFlight.acftNumber"><br>
+
+			<label for="flightType">Flight Type</label><br>
+			<select name="flightType" [(ngModel)]="newFlight.flightType">
+	      		<option value="Training">Training</option>
+	       		<option value="Combat">Combat</option>
+	       		<option value="MEDEVAC">Mission</option>
+	    	</select> <br>
+
+	    	<label for="missionType">Mission Type</label><br>
+			<select name="missionType" [(ngModel)]="newFlight.missionType">
+	      		<option value="Training">Training</option>
+	       		<option value="Combat">Combat</option>
+	       		<option value="MEDEVAC">MEDEVAC</option>
+	       		<option value="Fire">Fire Fighting</option>
+	       		<option value="VIP">VIP Transport</option>
+	    	</select> <br>
+
+			<label for="dayInHours">Day</label><br>
+			<input type="text" name="dayInHours" placeholder="0.0" [(ngModel)]="newFlight.dayInHours"><br>
+
+			<label for="nightInHours">Night Unaided</label><br>
+			<input type="text" name="nightInHours" placeholder="0.0" [(ngModel)]="newFlight.nightInHours"><br>
+
+			<label for="nightVisionGoggles">Night Aided</label><br>
+			<input type="text" name="nightVisionGoggles" placeholder="0.0" [(ngModel)]="newFlight.nightVisionGoggles"><br>
+
+			<label for="duration">Total Time</label><br>
+			<input type="text" name="duration" placeholder="0.0" [(ngModel)]="newFlight.durationInHours"><br>
+
+			<label for="pcId">Pilot in Command</label><br>
+			<select name="pcId" [(ngModel)]="newFlight.pcId">
+	      		<option value="3">Byers</option>
+	       		<option value="4">Hsia</option>
+	       		<option value="14">Millington</option>
+	       		<option value="15">Geraci</option>
+	    	</select> <br>
+
+			<label for="piId">Pilot</label><br>
+			<select name="piId" [(ngModel)]="newFlight.piId">
+	      		<option value="1">Dahm</option>
+	       		<option value="2">Pupelyte</option>
+	       		<option value="12">Tixier</option>
+	       		<option value="21">Rivera</option>
+	    	</select> <br>
+
+			<label for="ceId">Crew Chief</label><br>
+			<select name="ceId" [(ngModel)]="newFlight.ceId">
+	      		<option value="5">Verderame</option>
+	       		<option value="6">Patton</option>
+	       		<option value="18">Still</option>
+	       		<option value="19">Beehler</option>
+	    	</select> <br>
+
+			<label for="moId">Medic</label><br>
+			<select name="moId" [(ngModel)]="newFlight.moId">
+	      		<option value="30">Mitchell</option>
+	       		<option value="17">Weiner</option>
+	       		<option value="32">Vonlintel</option>
+	       		<option value="31">Malouff</option>
+	    	</select> <br>
+
+			<label for="fiId">Flight Instructor</label><br>
+			<select name="fiId" [(ngModel)]="newFlight.fiId">
+	      		<option value="33">Lefler</option>
+	       		<option value="10">Belo</option>
+	       		<option value="9">Hallgren</option>
+	    	</select> <br>
+			<br>
+			<button (click)="addFlight(newFlight)" name="addFlightButton">Log Flight</button>
+		</form>
+    <br> <br>
+	</div>
+<br><br><br><br>s
